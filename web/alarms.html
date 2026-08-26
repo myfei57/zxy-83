@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>告警 - TrainWash</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+<h1>告警与药剂</h1>
+<nav>
+<a href="/">总览</a>
+<a href="/wash">洗车</a>
+<a href="/brushes">刷组</a>
+<a href="/water">水系统</a>
+<a href="/alarms">告警</a>
+</nav>
+</header>
+<main>
+<section class="panel">
+<h2>洗涤剂</h2>
+<button id="spray-btn">喷洒 15000ms</button>
+<button id="alarm-btn">触发浓度告警</button>
+<button id="alarm-clear-btn">复位告警</button>
+<p id="chem-result"></p>
+</section>
+<section class="panel">
+<h2>风干机</h2>
+<button id="dry-start-btn">启动</button>
+<button id="dry-stop-btn">停止</button>
+<p id="dry-result"></p>
+</section>
+<section class="panel">
+<h2>药剂状态</h2>
+<div id="chem-state"></div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
