@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrainWash 控制台</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+<h1>TrainWash 列车自动洗车机控制台</h1>
+<nav>
+<a href="/">总览</a>
+<a href="/wash">洗车</a>
+<a href="/brushes">刷组</a>
+<a href="/water">水系统</a>
+<a href="/alarms">告警</a>
+</nav>
+</header>
+<main>
+<section class="panel">
+<h2>实时状态</h2>
+<div id="status">
+<p>加载中…</p>
+</div>
+</section>
+<section class="panel">
+<h2>工艺段位</h2>
+<div id="segments"></div>
+</section>
+<section class="panel">
+<h2>最近记录</h2>
+<table id="audit">
+<thead><tr><th>时间</th><th>动作</th><th>列车</th><th>详情</th></tr></thead>
+<tbody></tbody>
+</table>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
