@@ -17,5 +17,8 @@ func (s *Set) ResetLatch() error {
 }
 
 func (s *Set) resetLatchLocked() error {
-	return nil
+	if s.releaser == nil {
+		return nil
+	}
+	return s.releaser.ReleaseLatch()
 }

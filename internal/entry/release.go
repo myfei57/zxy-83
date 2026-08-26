@@ -23,6 +23,7 @@ func (s *Service) Latch() error {
 }
 
 func (s *Service) ReleaseLatch() error {
+	s.gateLatched = false
 	return store.SaveJSON(s.store, store.KeyEntryLatch, EntryState{Latched: false, WashSeq: s.washSeq})
 }
 
@@ -35,4 +36,10 @@ func (s *Service) WashSeq() int {
 }
 
 func (s *Service) restoreLatch() {
+	var state EntryState
+	if err := store.LoadJSON(s.store, store.KeyEntryLatch, &state); err != nil {
+		return
+	}
+	s.gateLatched = state.Latched
+	s.washSeq = state.WashSeq
 }
