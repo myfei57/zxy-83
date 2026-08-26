@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水系统 - TrainWash</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+<h1>水系统</h1>
+<nav>
+<a href="/">总览</a>
+<a href="/wash">洗车</a>
+<a href="/brushes">刷组</a>
+<a href="/water">水系统</a>
+<a href="/alarms">告警</a>
+</nav>
+</header>
+<main>
+<section class="panel">
+<h2>控制</h2>
+<button id="water-start-btn">建立清水</button>
+<button id="water-rinse-btn">冲洗完成</button>
+<button id="water-stop-btn">停水</button>
+<button id="water-drain-btn">排水</button>
+<p id="water-result"></p>
+</section>
+<section class="panel">
+<h2>水压标定</h2>
+<form id="gain-form">
+<label>增益(MPa)<input name="gain_mpa" type="number" step="0.1" value="5.0"></label>
+<button type="submit">标定</button>
+</form>
+<p id="gain-result"></p>
+</section>
+<section class="panel">
+<h2>水系统状态</h2>
+<div id="water-state"></div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
