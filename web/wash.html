@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>洗车操作 - TrainWash</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+<h1>洗车操作</h1>
+<nav>
+<a href="/">总览</a>
+<a href="/wash">洗车</a>
+<a href="/brushes">刷组</a>
+<a href="/water">水系统</a>
+<a href="/alarms">告警</a>
+</nav>
+</header>
+<main>
+<section class="panel">
+<h2>启动洗车</h2>
+<form id="wash-form">
+<label>列车编号<input name="train_id" value="T-1001" required></label>
+<label>车型<select name="type"><option value="short">短编组</option><option value="long">长编组</option></select></label>
+<label>车长(mm)<input name="length_mm" type="number" value="24000" required></label>
+<label>前端位置(mm)<input name="front_mm" type="number" value="8200" required></label>
+<label>零点(mm)<input name="zero_mm" type="number" value="0" required></label>
+<button type="submit">开始洗车</button>
+</form>
+<p id="wash-result"></p>
+</section>
+<section class="panel">
+<h2>完成 / 停机</h2>
+<button id="complete-btn">完成洗车</button>
+<button id="stop-btn" class="danger">紧急停机</button>
+<p id="cycle-result"></p>
+</section>
+<section class="panel">
+<h2>当前阶段</h2>
+<div id="cycle-state"></div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
