@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>刷组 - TrainWash</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+<h1>刷组控制</h1>
+<nav>
+<a href="/">总览</a>
+<a href="/wash">洗车</a>
+<a href="/brushes">刷组</a>
+<a href="/water">水系统</a>
+<a href="/alarms">告警</a>
+</nav>
+</header>
+<main>
+<section class="panel">
+<h2>侧刷</h2>
+<button id="lower-btn">下放</button>
+<button id="raise-btn">抬臂</button>
+<button id="retract-btn">收回</button>
+<p id="brush-result"></p>
+</section>
+<section class="panel">
+<h2>顶刷</h2>
+<button id="roof-lower-btn">下放</button>
+<button id="roof-raise-btn">抬臂</button>
+<button id="roof-brush-btn">清扫 1000mm</button>
+<p id="roof-result"></p>
+</section>
+<section class="panel">
+<h2>车型切换</h2>
+<form id="type-form">
+<label>目标车型<select name="type"><option value="short">短编组</option><option value="long">长编组</option></select></label>
+<button type="submit">切换</button>
+</form>
+<p id="type-result"></p>
+</section>
+<section class="panel">
+<h2>刷组状态</h2>
+<div id="brush-state"></div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
