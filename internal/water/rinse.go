@@ -18,6 +18,7 @@ func (s *System) RinseDone() error {
 	if s.state != StateRinsing {
 		return ErrNotRinsing
 	}
+	s.state = StateRinseDone
 	return store.SaveJSON(s.store, store.KeyWaterState, s.state)
 }
 

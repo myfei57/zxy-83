@@ -27,7 +27,7 @@ func NewService(waterSystem *water.System) *Service {
 func (s *Service) Start() error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
-	if s.water.State() == water.StateIdle {
+	if !s.water.RinseComplete() {
 		return ErrRinseNotDone
 	}
 	if s.running {
@@ -65,6 +65,12 @@ func (s *Service) DryFor(seconds int) error {
 	return nil
 }
 
+// ResetCycle clears any leftover running state from a prior wash so a fresh
+// cycle cannot inherit a stale "fans on" flag. StartWash calls this before the
+// new cycle begins; without it the dryer would keep reporting running across
+// an interrupted cycle, letting the fans spin before the new rinse completes.
 func (s *Service) ResetCycle() {
-	return
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.running = false
 }
